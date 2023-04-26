@@ -54,11 +54,9 @@ M.lspconfig = {
   }
 }
 
--- TODO: fix bug of opening tree AFTER session restored
 M.nvimtree = {
-  plugin = true,
   n = {
-    ["<leader>e"] = { "<cmd>NvimTreeToggle<CR>", "Nvimtree" },
+    ["<leader>e"] = { "<cmd> NvimTreeToggle <CR>", "NvimTree" },
   }
 }
 

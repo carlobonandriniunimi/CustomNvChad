@@ -4,12 +4,12 @@ local M = {}
 M.ui = {
   theme_toggle = { "onedark", "one_light" },
   theme = "onedark",
-  transparency = false,
+  transparency = true,
   lsp_semantic_tokens = true,
   cmp = {
     lspkind_text = true,
-    style = "default",
-  }
+    style = "default"
+  },
 }
 
 M.plugins = "custom.plugins"
