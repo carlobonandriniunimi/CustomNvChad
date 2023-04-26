@@ -1,3 +1,4 @@
+---@type MappingsTable
 local M = {}
 
 M.disabled = {
@@ -14,6 +15,12 @@ M.disabled = {
   t = {
     ["<C-x>"] = "", -- Escape terminal mode
   }
+}
+
+M.general = {
+  n = {
+    [";"] = { ":", "enter command mode", opts = { nowait = true } },
+  },
 }
 
 M.quit = {
