@@ -1,5 +1,5 @@
 require "base46.term" --  Loading themes
-require("toggleterm").setup({
+require("toggleterm").setup {
   size = function(term)
     if term.direction == "horizontal" then
       return 15
@@ -32,11 +32,11 @@ require("toggleterm").setup({
     border = "curved",
     winblend = 0,
   },
-})
+}
 
 local Terminal = require("toggleterm.terminal").Terminal
-local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
+local lazygit = Terminal:new { cmd = "lazygit", hidden = true }
 
 function _LAZYGIT_TOGGLE()
-    lazygit:toggle()
+  lazygit:toggle()
 end

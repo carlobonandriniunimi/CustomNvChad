@@ -3,23 +3,24 @@ local M = {}
 
 M.disabled = {
   n = {
-    ["<leader>n"] = "",  -- Toggle line numbers
+    ["<leader>n"] = "", -- Toggle line numbers
     ["<leader>rn"] = "", -- Toggle relative numbers
-    ["<leader>b"] = "",  -- New buffer
-    ["<tab>"] = "",      -- Next buffer
-    ["<S-tab>"] = "",    -- Prev buffer
+    ["<leader>b"] = "", -- New buffer
+    ["<tab>"] = "", -- Next buffer
+    ["<S-tab>"] = "", -- Prev buffer
     ["<leader>th"] = "", -- Theme switching
-    ["<leader>f"] = "",  -- Float diagnostic
-    ["<leader>e"] = "",  -- NvimTree Focus
-    ["<C-n>"] = "",      -- NvimTree Toggle
+    ["<leader>f"] = "", -- Float diagnostic
+    ["<leader>e"] = "", -- NvimTree Focus
+    ["<C-n>"] = "", -- NvimTree Toggle
     ["<leader>ff"] = "", -- Telescope find_files
     ["<leader>fo"] = "", -- Telescope find_files
     ["<leader>ls"] = "", -- Lsp signature_help
-    ["<A-i>"] = "",      -- Terminal float
-    ["<A-h>"] = "",      -- Terminal horizontal
-    ["<A-v>"] = "",      -- Terminal vertical
-    ["<leader>h"] = "",  -- New Terminal horizontal
-    ["<leader>v"] = "",  -- New Terminal floating
+    ["<A-i>"] = "", -- Terminal float
+    ["<A-h>"] = "", -- Terminal horizontal
+    ["<A-v>"] = "", -- Terminal vertical
+    ["<leader>h"] = "", -- New Terminal horizontal
+    ["<leader>v"] = "", -- New Terminal floating
+    ["<leader>pv"] = "", -- Pick hidden Terminal
   },
   t = {
     ["<C-x>"] = "", -- Escape terminal mode
@@ -103,12 +104,12 @@ M.telescope = {
 M.toggleterm = {
   --plugin = true,
   n = {
-    ["<C-t>"] = {"<cmd>ToggleTerm<cr>", "ToggleTerm"},
+    ["<C-t>"] = { "<cmd>ToggleTerm<cr>", "ToggleTerm" },
     ["<leader>th"] = { "<cmd>ToggleTerm direction=horizontal<cr>", "Horizontal" },
     ["<leader>tv"] = { "<cmd>ToggleTerm direction=vertical<cr>", "Vertical" },
     ["<leader>tf"] = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
     ["<leader>tt"] = { "<cmd>ToggleTerm direction=tab<cr>", "Tab" },
-  }
+  },
 }
 
 return M
