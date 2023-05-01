@@ -28,20 +28,7 @@ local plugins = {
   {
     "nvim-tree/nvim-tree.lua",
     lazy = false,
-    opts = {
-      on_attach = function(bufnr)
-        local api = require "nvim-tree.api"
-
-        local function options(desc)
-          return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
-        end
-
-        api.config.mappings.default_on_attach(bufnr)
-
-        vim.keymap.set("n", "?", api.tree.toggle_help, options "Help")
-        vim.keymap.set("n", ".", api.tree.change_root_to_node, options "CD")
-      end,
-    },
+    opts = overrides.nvimtree,
   },
   {
     "neovim/nvim-lspconfig",
@@ -88,6 +75,7 @@ local plugins = {
       },
     },
     config = function()
+      require "base46.term"
       require "custom.configs.toggleterm"
     end,
   },
@@ -103,15 +91,12 @@ local plugins = {
       require "custom.configs.null-ls" -- require your null-ls config here (example below)
     end,
   },
-  -- Install a plugin
-  -- {
-  --   "max397574/better-escape.nvim",
-  --   event = "InsertEnter",
-  --   config = function()
-  --     require("better_escape").setup()
-  --   end,
-  -- },
-
+  {
+    "ahmedkhalf/project.nvim",
+    opts = {
+      detection_methods = { "pattern" },
+    },
+  },
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",

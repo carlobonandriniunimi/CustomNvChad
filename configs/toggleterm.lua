@@ -10,13 +10,8 @@ require("toggleterm").setup {
   open_mapping = [[<C-t>]],
   hide_numbers = true, -- hide the number column in toggleterm buffers
   shade_filetypes = {},
-  autochdir = false, -- when neovim changes it current directory the terminal will change it's own when next it's opened
-  -- highlights = {
-  --   FloatBorder = {
-  --     guifg = "#589ed7",
-  --     -- guibg = "#589ed7",
-  --   },
-  -- },
+  shade_terminals = false,
+  autochdir = true, -- when neovim changes it current directory the terminal will change it's own when next it's opened
   start_in_insert = true,
   insert_mappings = false, -- whether or not the open mapping applies in insert mode
   terminal_mappings = true, -- whether or not the open mapping applies in the opened terminals
@@ -37,6 +32,6 @@ require("toggleterm").setup {
 local Terminal = require("toggleterm.terminal").Terminal
 
 function _LAZYGIT_TOGGLE()
-  local lazygit = Terminal:new { cmd = "lazygit", hidden = true, dir="git_dir" }
+  local lazygit = Terminal:new { cmd = "lazygit", hidden = true, dir = "git_dir" }
   lazygit:toggle()
 end
