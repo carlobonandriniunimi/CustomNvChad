@@ -7,6 +7,9 @@
 -- })
 -- go to last loc when opening a buffer
 
+vim.opt.clipboard = "unnamedplus" -- Sync with system clipboard
+vim.opt.scrolloff = 8
+
 local function augroup(name)
   return vim.api.nvim_create_augroup("custom_" .. name, { clear = true })
 end

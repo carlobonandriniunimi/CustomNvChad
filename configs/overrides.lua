@@ -8,11 +8,13 @@ M.telescope = {
         ["<C-j>"] = require("telescope.actions").move_selection_next,
         ["<C-k>"] = require("telescope.actions").move_selection_previous,
       },
-    }
-  }
+    },
+  },
 }
 
 M.treesitter = {
+  auto_install = true,
+
   ensure_installed = {
     "vim",
     "lua",
@@ -27,9 +29,10 @@ M.treesitter = {
   },
   indent = {
     enable = true,
-    -- disable = {
-    --   "python"
-    -- },
+    disable = {
+      "python",
+      "ocaml",
+    },
   },
 }
 
@@ -47,7 +50,6 @@ M.nvimtree = {
   git = {
     enable = true,
   },
-
   renderer = {
     highlight_git = true,
     icons = {
@@ -56,18 +58,23 @@ M.nvimtree = {
       },
     },
   },
-
+  actions = {
+    change_dir = {
+      enable = true,
+      global = true,
+    },
+  },
   on_attach = function(bufnr)
-    local api = require('nvim-tree.api')
+    local api = require "nvim-tree.api"
 
     local function options(desc)
-      return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+      return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
     end
 
     api.config.mappings.default_on_attach(bufnr)
 
-    vim.keymap.set('n', '?', api.tree.toggle_help, options('Help'))
-    vim.keymap.set('n', '.', api.tree.change_root_to_node, options('CD'))
+    vim.keymap.set("n", "?", api.tree.toggle_help, options "Help")
+    vim.keymap.set("n", ".", api.tree.change_root_to_node, options "CD")
   end,
 }
 

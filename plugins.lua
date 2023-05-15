@@ -26,33 +26,12 @@ local plugins = {
     },
   },
   {
-    "nvim-tree/nvim-tree.lua",
-    lazy = false,
-    opts = overrides.nvimtree,
-  },
-  {
-    "neovim/nvim-lspconfig",
-    dependencies = {
-      -- format & linting
-      {
-        "jose-elias-alvarez/null-ls.nvim",
-        config = function()
-          require "custom.configs.null-ls"
-        end,
-      },
-    },
-    config = function()
-      require "plugins.configs.lspconfig"
-      require "custom.configs.lspconfig"
-    end, -- Override to setup mason-lspconfig
-  },
-  -- override plugin configs
-  {
     "williamboman/mason.nvim",
     opts = overrides.mason,
   },
   {
     "nvim-treesitter/nvim-treesitter",
+    cmd = { "TSInstall", "TSUninstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
     opts = overrides.treesitter,
   },
   {
@@ -63,6 +42,20 @@ local plugins = {
   {
     "nvim-telescope/telescope.nvim",
     opts = overrides.telescope,
+  },
+  {
+    "windwp/nvim-autopairs",
+    config = function(_, opts)
+      require("nvim-autopairs").setup(opts)
+
+      -- setup cmp for autopairs
+      local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+      require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
+
+      local cond = require "nvim-autopairs.conds"
+      require("nvim-autopairs").get_rules("'")[1].not_filetypes = { "ocaml" }
+      require("nvim-autopairs").get_rules("'")[1]:with_pair(cond.not_after_text "[")
+    end,
   },
   {
     "akinsho/toggleterm.nvim",
