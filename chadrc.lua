@@ -26,6 +26,9 @@ M.ui = {
       disabled = false, -- signature as you type
     },
   },
+  tabufline = {
+    enabled = false,
+  },
 }
 
 M.plugins = "custom.plugins"
