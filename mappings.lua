@@ -33,6 +33,18 @@ M.disabled = {
 M.general = {
   n = {
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
+    ["L"] = {
+      function()
+        vim.cmd "bnext"
+      end,
+      "goto next buffer",
+    },
+    ["H"] = {
+      function()
+        vim.cmd "bprevious"
+      end,
+      "goto prev buffer",
+    },
   },
 }
 
@@ -63,13 +75,13 @@ M.tabufline = {
   n = {
     ["L"] = {
       function()
-        require("nvchad_ui.tabufline").tabuflineNext()
+        vim.cmd "bnext"
       end,
       "goto next buffer",
     },
     ["H"] = {
       function()
-        require("nvchad_ui.tabufline").tabuflinePrev()
+        vim.cmd "bprevious"
       end,
       "goto prev buffer",
     },
@@ -98,6 +110,7 @@ M.telescope = {
     ["<leader><leader>"] = { "<cmd> Telescope find_files<cr>", "Find Files" },
     ["<leader>fr"] = { "<cmd> Telescope oldfiles<cr>", "Recent Files" },
     ["<leader>ct"] = { "<cmd> Telescope themes<cr>", "Colorscheme Picker" },
+    ["<leader>,"] = { "<cmd> Telescope buffers<cr>", "Find Buffers" },
   },
 }
 
