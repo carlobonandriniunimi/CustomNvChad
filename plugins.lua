@@ -52,9 +52,8 @@ local plugins = {
       local cmp_autopairs = require "nvim-autopairs.completion.cmp"
       require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
-      local cond = require "nvim-autopairs.conds"
-      require("nvim-autopairs").get_rules("'")[1].not_filetypes = { "ocaml" }
-      require("nvim-autopairs").get_rules("'")[1]:with_pair(cond.not_after_text "[")
+      require("nvim-autopairs").get_rule("'")[1].not_filetypes =
+        { "ocaml", "ocaml.menhir", "ocaml.interface", "ocaml.ocamllex", "reason", "dune" }
     end,
   },
   {

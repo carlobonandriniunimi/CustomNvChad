@@ -45,6 +45,12 @@ M.general = {
       end,
       "goto prev buffer",
     },
+    ["<leader>x"] = {
+      function()
+        vim.cmd "bdelete"
+      end,
+      "Delete Buffer",
+    },
   },
 }
 
@@ -68,23 +74,6 @@ M.quit = {
   },
   t = {
     ["<esc>"] = { vim.api.nvim_replace_termcodes("<C-\\><C-N>", true, true, true), "Escape Terminal" },
-  },
-}
-
-M.tabufline = {
-  n = {
-    ["L"] = {
-      function()
-        vim.cmd "bnext"
-      end,
-      "goto next buffer",
-    },
-    ["H"] = {
-      function()
-        vim.cmd "bprevious"
-      end,
-      "goto prev buffer",
-    },
   },
 }
 

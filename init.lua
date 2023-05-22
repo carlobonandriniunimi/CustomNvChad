@@ -9,6 +9,7 @@
 
 vim.opt.clipboard = "unnamedplus" -- Sync with system clipboard
 vim.opt.scrolloff = 8
+vim.opt.wrap = false
 
 local function augroup(name)
   return vim.api.nvim_create_augroup("custom_" .. name, { clear = true })
